@@ -18,8 +18,9 @@ guard validCommands.contains(command) else {
     exit(1)
 }
 
-// Folder.current
-let folder = try Folder(path: "/Users/ben/Desktop/marathon/tracker")
+// can use a hardcoded path when debugging in Xcode:
+// e.g. let folder = try Folder(path: "/Users/ben/Desktop/marathon/tracker")
+let folder = Folder.current 
 let appFolder = try folder.subfolder(atPath: "Sources/App")
 
 let migrationsFolder = try appFolder.createSubfolderIfNeeded(withName: "Migrations")
